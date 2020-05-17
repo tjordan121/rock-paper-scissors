@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <script>
+        function computerPlay(){
+            // generate a random number between 1 and 3 inclusive and assign that number to rock, paper, scissors respectively.
+            // Return the computers selection
+            const max = 3;
+            const min = 1;
+            let computerSelection = ""
+            computerSelectionNum = Math.floor(Math.random() * (max - min + 1)) + min;
+            //console.log(computerSelectionNum);
+
+            if (computerSelectionNum == 1){
+                computerSelection = "rock"
+            } else if(computerSelectionNum == 2){
+                computerSelection = "paper"
+            } else {
+                computerSelection = "scissors"
+            } 
+            return (computerSelection)
+        }
+
+        function playRound(playerSelection, computerSelection){
+            // Take a player and computer selection of rock, paper, scissors and return who won
+            let winner = ""
+            if (playerSelection == "rock" && computerSelection == "rock"){
+                winner = "draw"
+            } else if (playerSelection == "rock" && computerSelection == "paper"){
+                winner = "computer"
+            } else if (playerSelection == "rock" && computerSelection == "scissors"){
+                winner = "player"
+            } else if (playerSelection == "paper" && computerSelection == "rock"){
+                winner = "player"
+            } else if (playerSelection == "paper" && computerSelection == "paper"){
+                winner = "draw"
+            } else if (playerSelection == "paper" && computerSelection == "scissors"){
+                winner = "computer"
+            } else if (playerSelection == "scissors" && computerSelection == "rock"){
+                winner = "computer"
+            } else if (playerSelection == "scissors" && computerSelection == "paper"){
+                winner = "player"
+            } else if (playerSelection == "scissors" && computerSelection == "scissors"){
+                winner = "draw"
+            }
+        return(winner)
+        }
+
+        let playerSelection = window.prompt('Choose "Rock", "Paper", or "Scissors:"')
+        playerSelection = playerSelection.toLowerCase();
+        let computerSelection = computerPlay();
+
+        let winner = playRound(playerSelection, computerSelection);
+
+
+        console.log(`Player chose: ${playerSelection} Computer chose: ${computerSelection}`);
+        console.log(`The winner is ${winner}`);
+        
+    </script>
+    </body>
+</html>
